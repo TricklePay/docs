@@ -6,6 +6,36 @@ trust boundaries between its components, and how to report a vulnerability.
 It is a companion to [THREAT_MODEL.md](THREAT_MODEL.md), which enumerates the
 specific actors and attacks considered.
 
+## Audit State
+
+**TricklePay has not undergone a formal third-party security audit.** As of this
+writing the project is pre-1.0 and should be treated as experimental.
+
+What review the code has had so far:
+
+- The contract has a full unit and integration test suite covering the vesting
+  math, partial and full withdrawals, cancellation splits, authorization,
+  invalid input, and the re-entrancy-safe ordering of state updates and
+  transfers.
+- The contract is formatted and linted with warnings treated as errors on every
+  change, and continuous integration runs the build, tests, and lints on every
+  push and pull request.
+- The security properties in this document and the analysis in
+  [THREAT_MODEL.md](THREAT_MODEL.md) are maintained alongside the code.
+
+What this means for users:
+
+- Prefer testnet while the project is pre-1.0, and do not stream funds you cannot
+  afford to lose.
+- A formal audit by an independent firm is a prerequisite for a 1.0 release and
+  for any recommendation of mainnet use at scale.
+- This section will be updated with the auditor, the scope, the date, and a link
+  to the report once an audit has been completed.
+
+If you are a security researcher or audit firm interested in reviewing
+TricklePay, or you can help fund an audit, please reach out through the project's
+repositories.
+
 ## Reporting a vulnerability
 
 If you believe you have found a security vulnerability, please report it
