@@ -89,7 +89,8 @@ npm run build
 
 ### Docs
 
-This repository is markdown only, so there is nothing to install.
+This repository is markdown only. There is nothing to build, but two linters
+must pass before opening a pull request.
 
 ```bash
 git clone <tricklepay-docs>
@@ -100,11 +101,21 @@ Before opening a pull request:
 
 ```bash
 ./scripts/check-links.sh        # every relative link resolves
+npx markdownlint-cli@0.44.0 "**/*.md" --ignore node_modules
+npx cspell@8.20.0 --config cspell.json "**/*.md"
 ```
 
-CI runs the same check on each push and pull request. It only follows links
-within the repository; external URLs are left alone, so check those by hand
-when you add them.
+CI runs all three checks on each push and pull request.
+
+- **Link check** (`check-links.sh`): every relative link must resolve to an
+  existing file or heading. External URLs are not checked.
+- **Markdown lint** (`markdownlint`): enforces consistent heading levels, list
+  formatting, and other structural rules. Configuration is in
+  `.markdownlint.yml`.
+- **Spell check** (`cspell`): checks prose spelling against the standard English
+  dictionary plus a project word list in `.cspell/project-words.txt`. If a new
+  technical term, product name, or abbreviation is not in the standard
+  dictionary, add it to that file (alphabetically sorted, one word per line).
 
 ## Coding standards
 

@@ -1,0 +1,112 @@
+# TricklePay project word list
+# Words here are accepted by cspell across all markdown files.
+# Keep entries alphabetically sorted and one word per line.
+# Add a brief comment when the reason for inclusion is not obvious.
+
+# --- Project and product names ---
+TricklePay
+tricklepay
+tricklepay-backend
+tricklepay-contracts
+tricklepay-docs
+tricklepay-frontend
+
+# --- Stellar / Soroban ecosystem ---
+Freighter
+Soroban
+Soroban's
+Stellar
+testnet
+
+# --- Blockchain / on-chain vocabulary ---
+escrow
+escrowed
+escrowing
+ledger
+on-chain
+RPC
+solvency
+
+# --- Smart-contract and vesting domain terms ---
+accrual
+accrued
+accruing
+cancellable
+cliff
+cliffs
+unvested
+vested
+vestable
+vesting
+withdrawable
+
+# --- Rust toolchain and cargo ---
+clippy
+Clippy
+rustup
+wasm
+wasm32
+WASM
+
+# --- TypeScript / Node.js / frontend ecosystem ---
+bigint
+Next.js
+Nextjs
+typecheck
+typechecker
+
+# --- Database ---
+Postgres
+PostgreSQL
+upsert
+upserts
+upserted
+upserting
+
+# --- Architecture / design pattern terms ---
+idempotent
+idempotency
+indexer
+re-entrancy
+re-entrant
+reentrancy
+
+# --- Compound words used in prose ---
+backstop
+codebase
+multi-root
+pre-release
+read-only
+read-optimized
+supply-chain
+time-to-live
+trust-critical
+wallet-signed
+
+# --- Abbreviations and identifiers used in prose ---
+HTTP
+HTTPS
+JSON
+MIT
+RPC
+TLS
+WASM
+XLM
+
+# --- Other technical terms ---
+bytecode
+custodies
+escrows
+fundless
+gracefully
+middleware
+mitigations
+parameterized
+recompute
+recomputes
+recomputing
+remediation
+squash
+squashed
+stateless
+toolchain
