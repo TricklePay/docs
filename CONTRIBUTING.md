@@ -87,6 +87,25 @@ npm run typecheck
 npm run build
 ```
 
+### Docs
+
+This repository is markdown only, so there is nothing to install.
+
+```bash
+git clone <tricklepay-docs>
+cd tricklepay-docs
+```
+
+Before opening a pull request:
+
+```bash
+./scripts/check-links.sh        # every relative link resolves
+```
+
+CI runs the same check on each push and pull request. It only follows links
+within the repository; external URLs are left alone, so check those by hand
+when you add them.
+
 ## Coding standards
 
 ### Rust (contract)
