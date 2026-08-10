@@ -87,4 +87,5 @@ Each repository has its own setup instructions in its README. End to end:
 
 ## License
 
-MIT. Each repository carries its own copy of the license.
+MIT. See [LICENSE](LICENSE). Each repository carries its own copy of the
+license.
