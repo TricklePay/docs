@@ -84,6 +84,8 @@ Each repository has its own setup instructions in its README. End to end:
   mitigations.
 - [CONTRIBUTING.md](CONTRIBUTING.md): how to set up, build, and contribute across
   the repositories.
+- [GOVERNANCE.md](GOVERNANCE.md): maintainer roles, decision-making, merge rules,
+  and deployment key custody.
 
 ## License
 
