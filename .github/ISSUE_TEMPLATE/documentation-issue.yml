@@ -1,0 +1,30 @@
+name: Documentation issue
+description: Something in the docs is wrong, out of date, broken, or unclear.
+labels: [documentation]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Page
+      description: The file, and the heading or line if you have it.
+      placeholder: ARCHITECTURE.md, "Vesting model"
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong
+      description: Quote the passage if it is short.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What it should say
+      description: >
+        If the docs disagree with the code, say which repository and file you
+        checked against. The contract is the source of truth.
+    validations:
+      required: true

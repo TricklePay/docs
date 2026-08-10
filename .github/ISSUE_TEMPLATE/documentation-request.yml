@@ -1,0 +1,28 @@
+name: Documentation request
+description: Something is missing from the docs and should be written.
+labels: [documentation]
+body:
+  - type: textarea
+    id: missing
+    attributes:
+      label: What is missing
+      description: What you went looking for and could not find.
+    validations:
+      required: true
+
+  - type: textarea
+    id: audience
+    attributes:
+      label: Who needs it
+      description: >
+        A contributor to the contract, someone integrating with the API, an
+        auditor reading the threat model, and so on. This decides where it goes.
+    validations:
+      required: true
+
+  - type: input
+    id: location
+    attributes:
+      label: Where it belongs
+      description: The existing file it fits into, if you have a view.
+      placeholder: CONTRIBUTING.md
