@@ -14,7 +14,7 @@ with component-specific detail.
   affect funds and require the most care and the strongest tests.
 - **tricklepay-backend** (TypeScript): the indexer and read API.
 - **tricklepay-frontend** (TypeScript, Next.js): the web client.
-- **tricklepay-docs** (Markdown): this documentation hub.
+- **docs** (Markdown): this documentation hub.
 
 If you are not sure where a change belongs, or you are planning a large change,
 open an issue first so the approach can be agreed before you invest time. Small,
@@ -93,8 +93,8 @@ This repository is markdown only. There is nothing to build, but two linters
 must pass before opening a pull request.
 
 ```bash
-git clone <tricklepay-docs>
-cd tricklepay-docs
+git clone <docs>
+cd docs
 ```
 
 Before opening a pull request:
