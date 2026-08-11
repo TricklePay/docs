@@ -57,7 +57,7 @@ design.
 | **tricklepay-contracts** | The Soroban streaming contract, in Rust. Holds funds and enforces the vesting schedule. The source of truth. |
 | **tricklepay-backend** | An indexer and read API, in TypeScript. Mirrors on-chain stream state into Postgres and serves it over HTTP with live derived figures. |
 | **tricklepay-frontend** | A web client, in Next.js. Connects a wallet, shows streams with live-accruing balances, and drives the create, withdraw, and cancel actions. |
-| **tricklepay-docs** | This repository: architecture, security model, threat model, and contributor guides. |
+| **docs** | This repository: architecture, security model, threat model, and contributor guides. |
 
 The three code repositories are independent and can be developed and deployed
 separately. The contract is the only component that holds funds or enforces
