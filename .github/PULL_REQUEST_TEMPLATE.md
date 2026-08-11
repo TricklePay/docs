@@ -15,8 +15,6 @@ backend and frontend must agree with it.
 # Checklist
 
 - [ ] `./scripts/check-links.sh` passes locally.
-- [ ] `markdownlint "**/*.md" --ignore node_modules` passes locally.
-- [ ] `cspell --config cspell.json "**/*.md"` passes locally (add new technical terms to `.cspell/project-words.txt` if needed).
 - [ ] Claims about behavior match the code in the repository they describe.
 - [ ] The vesting model is described consistently wherever it appears.
 - [ ] No addresses, keys, contract ids, or endpoints that should stay private.
