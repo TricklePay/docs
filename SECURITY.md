@@ -135,3 +135,12 @@ The security properties hold under the following assumptions:
 Until a tagged 1.0 release, all components should be considered pre-release.
 Security fixes are applied to the main branch of each repository. Anyone running
 TricklePay is encouraged to track the latest commit on main.
+
+## Deployment keys
+
+How deployment keys are held, who has access, and what happens when they need to
+be rotated is documented in [GOVERNANCE.md](GOVERNANCE.md). The short version
+relevant here: the on-chain contract does not have a privileged admin account
+that can move funds after deployment, so a deployer key compromise does not give
+an attacker access to escrowed funds. All fund movements continue to require
+per-stream authorization from the sender or recipient, enforced by the contract.
