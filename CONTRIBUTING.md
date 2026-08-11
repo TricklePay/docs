@@ -163,6 +163,9 @@ For a change that touches more than one repository, for example a contract chang
 that the backend and frontend need to follow, describe the coordination in each
 pull request and link them together so reviewers can see the whole picture.
 
+Who can merge, what approval counts are required, and how broader decisions are
+made is documented in [GOVERNANCE.md](GOVERNANCE.md).
+
 ## Reporting bugs
 
 A good bug report includes what you did, what you expected, and what actually
