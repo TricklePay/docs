@@ -70,7 +70,17 @@ already taken:
 withdrawable(t) = max(0, vested(t) - withdrawn)
 ```
 
-Two consequences worth noting:
+A recipient can take any portion of `withdrawable(t)` in a single call — they do
+not have to take the full balance at once. Formally, a partial withdrawal of
+`amount` where `0 < amount <= withdrawable(t)` succeeds and advances `withdrawn`
+by exactly `amount`. The remaining unvested tokens are still in escrow and the
+formula continues from the updated `withdrawn` value:
+
+```
+withdrawable_after_partial(t') = max(0, vested(t') - (withdrawn + amount))
+```
+
+Three consequences worth noting:
 
 - The cliff only gates *access*, not accrual. At the moment the cliff is reached,
   `vested` jumps to the linearly accrued amount for the time elapsed since the
@@ -78,6 +88,9 @@ Two consequences worth noting:
 - Integer division rounds down, so the recipient can never withdraw more than `T`
   in total, and rounding dust stays in the contract until the end, when `vested`
   becomes exactly `T`.
+- Partial withdrawals do not change the vesting schedule or the locked escrow
+  beyond the amount transferred. The tokens that remain in the contract
+  (`locked = T - withdrawn`) continue to vest on the original timeline.
 
 This same formula is implemented three times: in Rust in the contract, and in
 TypeScript in both the backend and the frontend. The contract version is
@@ -110,6 +123,19 @@ withdrawn, start time, end time, cliff time, and a cancelled flag.
 - `cancel(id) -> refund` requires the sender's authorization, refunds the
   unvested remainder to the sender, and freezes the stream so the recipient can
   still withdraw the vested portion.
+- `withdraw_amount(id, amount)` requires the recipient's authorization, computes
+  the withdrawable balance, and transfers exactly `amount` tokens to the
+  recipient — which must be greater than zero and no more than the withdrawable
+  balance — then records the partial withdrawal. This is useful when a recipient
+  wants to take only part of their accrued balance in one transaction.
+- `locked(id) -> amount` requires no authorization and returns the number of
+  tokens that are still held in escrow for the stream: the total amount minus
+  everything that has already been withdrawn. For an active stream this is always
+  positive; it reaches zero only after the full amount has been paid out.
+- `progress(id) -> (withdrawn, total)` requires no authorization and returns a
+  pair giving the amount already withdrawn and the stream's total amount. Callers
+  can derive the completion percentage as `withdrawn / total` and the remaining
+  escrowed balance as `total − withdrawn` from these two values.
 - Read-only views (`get_stream`, `withdrawable`, `vested`, `status`,
   `stream_count`) require no authorization and compute against the current ledger
   time.
