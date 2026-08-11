@@ -1,0 +1,26 @@
+# markdownlint configuration
+# https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md
+default: true
+
+# MD013 – line length
+# The prose documents use wrapped paragraphs; enforcing a hard column limit
+# would require reformatting them all.  Disable the rule rather than set an
+# arbitrary width that will keep changing.
+MD013: false
+
+# MD033 – inline HTML
+# ASCII-art tables in ARCHITECTURE.md use raw HTML fences inside code blocks;
+# those are fine.  The rule would otherwise trip on anything that looks like a
+# tag, so disable it for this all-markdown repo where no HTML is intentional.
+MD033: false
+
+# MD040 – fenced code blocks should have a language
+# ARCHITECTURE.md uses language-less fences for ASCII-art diagrams and data-flow
+# pseudocode, which are not valid language identifiers.  Disable rather than
+# attach a spurious "text" tag to prose diagrams.
+MD040: false
+
+# MD041 – first line should be a top-level heading
+# All six documents start with an H1, so this is already satisfied.  Kept on
+# as a guard.
+MD041: true
