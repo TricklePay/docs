@@ -68,8 +68,17 @@ while IFS= read -r file; do
 
       case "$path" in
         *.md)
-          if [ -n "$anchor" ] && ! anchors "$path" | grep -qxF "$anchor"; then
-            report "$file" "$lineno" "$target"
+          # The membership test is deliberately pipe-free. Piping into
+          # `grep -q` makes grep exit at the first match, which hands the
+          # producing side SIGPIPE; under `set -o pipefail` that becomes a
+          # non-zero pipeline status, and the `!` then reports the link as
+          # broken exactly when the anchor was found early enough for the
+          # producer to still have output pending.
+          if [ -n "$anchor" ]; then
+            case $'\n'"$(anchors "$path")"$'\n' in
+              *$'\n'"$anchor"$'\n'*) ;;
+              *) report "$file" "$lineno" "$target" ;;
+            esac
           fi
           ;;
       esac
