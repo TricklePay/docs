@@ -40,7 +40,7 @@ jobs:
           node-version: "20"
 
       - name: Install cspell
-        run: npm install --global cspell@8.20.0
+        run: npm install --global cspell@8.19.4
 
       - name: Spell-check markdown files
         run: cspell --config cspell.json "**/*.md"
